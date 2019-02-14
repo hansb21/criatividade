@@ -22,3 +22,7 @@ class RPNTest(TestCase):
     def test_execute_addition(self):
         '''Should execute an addition correctly'''
         self.assert_execute([4, 2, make_operator('+')], 6)
+
+    def test_execute_multiplication(self):
+        '''Should execute a multiplication correctly'''
+        self.assert_execute([4, 2, make_operator('*')], 8)
