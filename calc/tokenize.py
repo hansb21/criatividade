@@ -8,7 +8,7 @@ REGEXES = [
     (re.compile(r'\s+'), lambda _: None),
     (re.compile(r'(\+|-)?([1-9]\d*|0)\.\d*'), float),
     (re.compile(r'(\+|-)?[1-9]\d*'), int),
-    (re.compile(r'\+'), make_operator)
+    (re.compile(r'\+|-'), make_operator)
 ]
 
 

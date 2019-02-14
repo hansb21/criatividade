@@ -18,6 +18,13 @@ class TokenizeTest(TestCase):
         operator(stack)
         self.assertEqual(stack.pop(), 6)
 
+    def test_make_operator_subtract(self):
+        '''Subtraction operator should add'''
+        stack = [4, 2]
+        operator = make_operator('-')
+        operator(stack)
+        self.assertEqual(stack.pop(), 2)
+
     def test_tokenize_empty(self):
         '''Empty string gives no tokens'''
         self.assert_tokenize('', [])
@@ -35,8 +42,12 @@ class TokenizeTest(TestCase):
         self.assert_tokenize('+', [make_operator('+')])
 
     def test_tokenize_addition(self):
-        '''Tokenizes a rpn expression'''
+        '''Tokenizes a rpn addition'''
         self.assert_tokenize('4 2 +', [4, 2, make_operator('+')])
+
+    def test_tokenize_subtraction(self):
+        '''Tokenizes a rpn subtraction'''
+        self.assert_tokenize('4 2 -', [4, 2, make_operator('-')])
 
     def test_tokenize_raises_bad_token(self):
         '''Raises exception on wrong token'''
